@@ -3,22 +3,20 @@ kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    app: external_db
-  name: external_db
+    app: nginx-api
+  name: nginx-api
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
-      app: external_db
+      app: nginx-api
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: external_db
+        app: nginx-api
     spec:
       containers:
-      - image: mysql:latest
-        name: mysql
-        resources: {}
-status: {}
+      - image: nginx:alpine
+        name: nginx

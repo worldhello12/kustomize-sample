@@ -3,22 +3,22 @@ kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    app: web-frontend
-  name: web-frontend
+    app: nginx-api
+  name: nginx-api
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: web-frontend
+      app: nginx-api
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: web-frontend
+        app: nginx-api
     spec:
       containers:
-      - image: httpd:alpine
-        name: httpd
-        resources: {}
-status: {}
+      - image: nginx:alpine
+        name: nginx
+      - image: tomcat:latest
+        name: tomcat

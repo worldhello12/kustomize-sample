@@ -1,7 +1,7 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
-nameSuffix: -prod #(chú ý đổi Suffix trong cả 3 file)
+nameSuffix: -stag #(chú ý đổi Suffix trong cả 3 file)
 
 bases:
   - ../../base
@@ -9,6 +9,7 @@ bases:
 resources:
   - config-map.yaml
 
+#patch json6902 demo replace
 patches:
   - target:
       kind: Deployment
@@ -16,4 +17,4 @@ patches:
     patch: |-
       - op: replace
         path: /spec/replicas
-        value: 5
+        value: 9

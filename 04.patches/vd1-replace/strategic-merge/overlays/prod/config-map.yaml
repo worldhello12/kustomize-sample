@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: database-cfg
+data:
+  password: prod-pwd-123
+  username: prod-acc-123

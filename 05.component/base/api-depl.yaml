@@ -20,5 +20,3 @@ spec:
       containers:
       - image: httpd:alpine
         name: httpd
-        resources: {}
-status: {}

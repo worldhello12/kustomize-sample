@@ -1,0 +1,24 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+nameSuffix: -prod #(chú ý đổi Suffix trong cả 3 file)
+
+bases:
+  - ../../base
+  
+resources:
+  - config-map.yaml
+
+
+#patch strategic-merge demo replace
+patches:
+  - patch: |-
+      apiVersion: apps/v1
+      kind: Deployment
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: nginx-api
+        name: nginx-api
+      spec:
+        replicas: 10

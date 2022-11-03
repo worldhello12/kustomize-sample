@@ -1,0 +1,24 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+nameSuffix: -prod #(chú ý đổi Suffix trong cả 3 file)
+
+bases:
+  - ../../base
+  
+resources:
+  - config-map.yaml
+
+
+#demo patches json6902 add
+patches:
+  #Patch add logstash service mesh
+  - target:
+      kind: Deployment
+      name: nginx-api        
+    patch: |-
+      - op: add
+        path: /spec/template/spec/containers/-
+        value:
+          name: logstash-mesh
+          image: logstash:latest

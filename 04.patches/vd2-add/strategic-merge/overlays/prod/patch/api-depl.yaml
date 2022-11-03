@@ -1,0 +1,12 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-api
+spec:
+  template:
+    spec:
+      containers:
+      - image: nginx:alpine
+        name: nginx
+      - image: logstash:latest
+        name: logstash-mesh

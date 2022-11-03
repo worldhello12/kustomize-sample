@@ -1,0 +1,15 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+nameSuffix: -prod #(chú ý đổi Suffix trong cả 3 file)
+
+bases:
+  - ../../base
+  
+resources:
+  - config-map.yaml
+
+
+#patch strategic-merge demo add
+patches:
+  - patch/api-depl.yaml

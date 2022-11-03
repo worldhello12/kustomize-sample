@@ -1,0 +1,12 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-api
+spec:
+  replicas: 8
+  strategy: {}
+  template:
+    spec:
+      containers:
+      - image: httpd:alpine
+        name: nginx

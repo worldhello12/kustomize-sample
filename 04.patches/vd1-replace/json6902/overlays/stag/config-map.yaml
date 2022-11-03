@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: database-cfg
+data:
+  password: stag-pwd-123
+  username: stag-acc-123
